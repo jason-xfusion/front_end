@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Learning</title>
+    
+</head>
+<body>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+
+
+    <!-- 列表渲染 -->
+    <div>
+        <ul id="example-1">
+            <li v-for="item in items" :key="item.message">
+                {{item.message}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var example1=new Vue({
+            el:'#example-1',
+            data:{
+                items:[
+                    {message:'jason'},
+                    {message:'stark'},
+                    {message:'hi'}
+                ]
+            }
+        })
+    </script>
+
+    <!-- v-once仅初次更新，后续数据更新不再响应，可在控制台调试 app.message='test' -->
+    <div id="app" v-once>
+        {{message}}
+    </div>
+    <script>
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:'Hello vue'
+            }
+        })
+    </script>
+
+    <!-- v-pre 无需传入，原样输出 -->
+    <div id="demo">
+        <p v-pre>这里不会编译{{msg}}</p>
+    </div>
+    <script>
+        var demo=new Vue({
+            el:'#demo',
+            data:{
+                msg:'test'
+            }
+        })
+    </script>
+    
+    
+</body>
+</html>
